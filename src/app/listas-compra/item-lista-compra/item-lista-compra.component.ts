@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-lista-compra',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./item-lista-compra.component.scss']
 })
 export class ItemListaCompraComponent {
-
+  @Input() datosLista: any = null;
 }
