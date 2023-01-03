@@ -1,4 +1,6 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { map, Observable, shareReplay } from 'rxjs';
 import { Producto } from './models/producto';
 
 @Component({
@@ -47,6 +49,14 @@ export class AppComponent {
     }]
   }];
   public listaActiva = 1;
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   seleccionarLista(id: number) {
     this.listaActiva = id;

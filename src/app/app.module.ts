@@ -7,6 +7,13 @@ import { ItemListaCompraComponent } from './listas-compra/item-lista-compra/item
 import { ListasCompraComponent } from './listas-compra/listas-compra.component';
 import { ItemProductoComponent } from './productos/item-producto/item-producto.component';
 import { ProductosComponent } from './productos/productos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,14 @@ import { ProductosComponent } from './productos/productos.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
