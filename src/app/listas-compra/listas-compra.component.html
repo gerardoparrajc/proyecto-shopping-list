@@ -1,5 +1,8 @@
-<ul>
-  <li *ngFor="let lista of listas">
-    <app-item-lista-compra  [datosLista]="lista" (click)="seleccionarLista(lista.id)"></app-item-lista-compra>
-  </li>
-</ul>
+<mat-selection-list [multiple]="false">
+  <app-item-lista-compra
+    *ngFor="let lista of listas"
+    [datosLista]="lista"
+    (click)="seleccionarLista(lista.id)"
+    [ngClass]="estaSeleccionada(lista.id) ? 'active' : ''"
+  ></app-item-lista-compra>
+</mat-selection-list>

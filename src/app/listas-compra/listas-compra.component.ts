@@ -15,6 +15,10 @@ export class ListasCompraComponent {
     this.listaSeleccionada.emit(this.seleccionada);
   }
 
+  estaSeleccionada(id: number): boolean {
+    return id === this.seleccionada;
+  }
+
 
 
 }
