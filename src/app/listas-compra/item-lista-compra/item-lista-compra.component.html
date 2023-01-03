@@ -1,2 +1,4 @@
-<p>{{ datosLista.nombre }}</p>
-<app-productos [listaProductos]="datosLista.productos"></app-productos>
+<div class="item-listas-compra">
+  <p class="nombre">{{ datosLista.nombre }}</p>
+  <p class="totalItems">Número de productos: {{ datosLista.productos.length }}</p>
+</div>

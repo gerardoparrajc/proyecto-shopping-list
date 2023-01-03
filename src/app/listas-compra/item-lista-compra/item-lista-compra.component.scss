@@ -1,3 +1,23 @@
-p {
-  font-size: 18px;
+.item-listas-compra {
+  border-bottom: 1px solid lightgrey;
+  padding: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f1e3fb;
+  }
+
+  p {
+    margin: 0;
+
+    &.nombre {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &.totalItems {
+      font-size: 12px;
+      color: grey;
+    }
+  }
 }

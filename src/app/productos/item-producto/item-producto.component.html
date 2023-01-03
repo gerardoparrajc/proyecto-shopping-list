@@ -1,5 +1,4 @@
-<div class="producto">
-  <label [ngClass]="datosProducto.marcado ? 'marcado' : ''" for="marcado_{{datosProducto.id}}">{{datosProducto.nombre}} <span class="badge">{{datosProducto.cantidad}}</span></label>
+<label class="itemListaCompra">
   <input
     [(ngModel)]="datosProducto.marcado"
     type="checkbox"
@@ -8,4 +7,7 @@
     [checked]="datosProducto.marcado"
     (change)="emitirEvento()"
   >
-</div>
+  <p class="nombre" [ngClass]="datosProducto.marcado ? 'comprado' : ''">{{datosProducto.nombre}}</p>
+  <span class="spacer"></span>
+  <p class="unidades">{{datosProducto.cantidad}}</p>
+</label>

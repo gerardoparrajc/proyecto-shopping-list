@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Producto } from './models/producto';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +38,32 @@ export class AppComponent {
       cantidad: 1,
       idLista: 2,
       marcado: false
+    }, {
+      id: 5,
+      nombre: 'Pan de molde',
+      cantidad: 2,
+      idLista: 2,
+      marcado: false
     }]
   }];
+  public listaActiva = 1;
+
+  seleccionarLista(id: number) {
+    this.listaActiva = id;
+  }
+
+  getProductos(idLista: number): Producto[] {
+    const lista = this.datos.find(
+      (valor) => {
+        return valor.id === idLista;
+      }
+    );
+
+    if (lista) {
+      return lista.productos;
+    }
+
+    return [];
+
+  }
 }

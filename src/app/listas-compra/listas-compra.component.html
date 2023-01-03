@@ -1,2 +1,5 @@
-<h1>Listas de la compra</h1>
-<app-item-lista-compra *ngFor="let lista of listas" [datosLista]="lista"></app-item-lista-compra>
+<ul>
+  <li *ngFor="let lista of listas">
+    <app-item-lista-compra  [datosLista]="lista" (click)="seleccionarLista(lista.id)"></app-item-lista-compra>
+  </li>
+</ul>

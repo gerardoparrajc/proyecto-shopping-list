@@ -1,17 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.scss']
 })
-export class ProductosComponent implements OnInit {
+export class ProductosComponent implements OnInit, DoCheck {
   @Input() listaProductos: any[] = [];
-
   cuentaProductos: number = 0;
 
   ngOnInit() {
-    this.cuentaProductos = this.listaProductos.length;
+    this.actualizarCuenta();
+  }
+
+  ngDoCheck(): void {
+    this.actualizarCuenta();
   }
 
   actualizarCuenta() {

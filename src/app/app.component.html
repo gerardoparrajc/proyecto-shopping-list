@@ -4,6 +4,10 @@
 
 <div class="body">
   <div class="sidebar">
-    <app-listas-compra [listas]="datos"></app-listas-compra>
+    <app-listas-compra [listas]="datos" [seleccionada]="listaActiva" (listaSeleccionada)="seleccionarLista($event)"></app-listas-compra>
+  </div>
+
+  <div class="content">
+    <app-productos [listaProductos]="getProductos(listaActiva)"></app-productos>
   </div>
 </div>

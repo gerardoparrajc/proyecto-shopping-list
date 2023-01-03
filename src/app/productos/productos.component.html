@@ -1,2 +1,6 @@
-<h2>Productos {{cuentaProductos}}</h2>
-<app-item-producto *ngFor="let producto of listaProductos" [datosProducto]="producto" (datosActualizados)="actualizarCuenta()"></app-item-producto>
+<p class="total">Productos restantes: {{cuentaProductos}}</p>
+<ul>
+  <li *ngFor="let producto of listaProductos">
+    <app-item-producto  [datosProducto]="producto" (datosActualizados)="actualizarCuenta()"></app-item-producto>
+  </li>
+</ul>

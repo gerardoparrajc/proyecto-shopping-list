@@ -1,16 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-listas-compra',
   templateUrl: './listas-compra.component.html',
   styleUrls: ['./listas-compra.component.scss']
 })
-export class ListasCompraComponent implements OnInit{
+export class ListasCompraComponent {
   @Input() listas: any[] = [];
+  @Input() seleccionada: number = 1;
+  @Output() listaSeleccionada: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.listas);
+  seleccionarLista(id: number) {
+    this.seleccionada = id;
+    this.listaSeleccionada.emit(this.seleccionada);
   }
+
+
+
 }
