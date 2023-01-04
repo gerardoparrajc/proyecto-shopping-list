@@ -1,4 +1,4 @@
-<label class="itemListaCompra">
+<!-- <label class="itemListaCompra">
   <input
     [(ngModel)]="datosProducto.marcado"
     type="checkbox"
@@ -7,7 +7,12 @@
     [checked]="datosProducto.marcado"
     (change)="emitirEvento()"
   >
-  <p class="nombre" [ngClass]="datosProducto.marcado ? 'comprado' : ''">{{datosProducto.nombre}}</p>
+  <span class="nombre" [ngClass]="datosspanroducto.marcado ? 'comprado' : ''">{{datosProducto.nombre}}</p>
   <span class="spacer"></span>
   <p class="unidades">{{datosProducto.cantidad}}</p>
-</label>
+</label> -->
+
+<mat-list-option>
+  <span class="nombre" [ngClass]="datosProducto.marcado ? 'comprado' : ''">{{datosProducto.nombre}}</span>
+  <span class="unidades">{{datosProducto.cantidad}}</span>
+</mat-list-option>

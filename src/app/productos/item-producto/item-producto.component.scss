@@ -1,26 +1,16 @@
-.itemListaCompra {
-  display: flex;
+.nombre {
+  margin-right: 16px;
+}
 
-
-  input {
-    margin-right: 16px;
-  }
-
-  .nombre {
-    &.comprado {
-      text-decoration: line-through;
-    }
-  }
-
-  .unidades {
-    background: red;
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50px;
-    line-height: 24px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-  }
+.unidades {
+  background: red;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
 }
