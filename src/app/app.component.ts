@@ -1,14 +1,15 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map, Observable, shareReplay } from 'rxjs';
 import { Producto } from './models/producto';
+import { ListasCompraService } from './services/listas-compra.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public datos = [{
     id: 1,
     nombre: 'Mercadona',
@@ -56,7 +57,19 @@ export class AppComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private listasCompraService: ListasCompraService) { }
+
+  ngOnInit(): void {
+    this.listasCompraService.getListasCompra().subscribe({
+      next: (response: any) => {
+        console.log(response);
+        if (response.success) {
+          this.datos = response.data;
+        }
+      },
+      error: (err) => console.log(err)
+    });
+  }
 
   seleccionarLista(id: number) {
     this.listaActiva = id;
