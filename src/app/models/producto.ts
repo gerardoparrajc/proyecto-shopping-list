@@ -1,7 +1,7 @@
 export interface Producto {
   id: number,
   nombre: string,
-  cantidad: number,
+  unidades: number,
   marcado: boolean,
   idLista: number
 }
