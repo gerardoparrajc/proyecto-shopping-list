@@ -8,6 +8,20 @@
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span>Shoppint list</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu opciones">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>checklist</mat-icon>
+      <span>Añadir lista</span>
+    </button>
+    <button mat-menu-item [disabled]="listaActiva===-1">
+      <mat-icon>inventory_2</mat-icon>
+      <span>Añadir producto</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
