@@ -13,11 +13,11 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="abrirDialogoNuevaLista()">
       <mat-icon>checklist</mat-icon>
       <span>Añadir lista</span>
     </button>
-    <button mat-menu-item [disabled]="listaActiva===-1">
+    <button mat-menu-item [disabled]="listaActiva===-1" (click)="abrirDialogoNuevoProducto()">
       <mat-icon>inventory_2</mat-icon>
       <span>Añadir producto</span>
     </button>
