@@ -1,5 +1,11 @@
 <p class="total">Productos restantes: {{cuentaProductos}}</p>
 
 <mat-selection-list cdkDropList (cdkDropListDropped)="drop($event)">
-  <app-item-producto *ngFor="let producto of listaProductos" cdkDrag [datosProducto]="producto" (datosActualizados)="actualizarCuenta()"></app-item-producto>
+  <app-item-producto
+    *ngFor="let producto of listaProductos"
+    cdkDrag
+    [datosProducto]="producto"
+    (productoEliminado)="eliminarProducto($event)"
+    (datosActualizados)="actualizarCuenta()">
+  </app-item-producto>
 </mat-selection-list>

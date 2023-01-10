@@ -2,6 +2,7 @@
   <app-item-lista-compra
     *ngFor="let lista of listas"
     [datosLista]="lista"
+    (listaActualizada)="eliminarListaCompra($event)"
     (click)="seleccionarLista(lista.id)"
     [ngClass]="estaSeleccionada(lista.id) ? 'active' : ''"
   ></app-item-lista-compra>

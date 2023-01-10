@@ -13,7 +13,7 @@
         <mat-icon>edit</mat-icon>
         <span>Editar lista</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="abrirEliminarLista(datosLista.id)">
         <mat-icon>delete</mat-icon>
         <span>Eliminar lista</span>
       </button>

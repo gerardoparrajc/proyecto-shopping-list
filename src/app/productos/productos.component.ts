@@ -29,6 +29,11 @@ export class ProductosComponent implements OnInit, DoCheck {
     this.cuentaProductos = cuenta;
   }
 
+  eliminarProducto(idProducto: number) {
+    const indiceProducto = this.listaProductos.findIndex((producto: any) => producto.id === idProducto);
+    this.listaProductos.splice(indiceProducto, 1);
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.listaProductos, event.previousIndex, event.currentIndex);
   }

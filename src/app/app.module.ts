@@ -24,6 +24,9 @@ import { ProductosComponent } from './productos/productos.component';
 import { NuevaListaComponent } from './dialogos/nueva-lista/nueva-lista.component';
 import { NuevoProductoComponent } from './dialogos/nuevo-producto/nuevo-producto.component';
 import { EditarListaComponent } from './dialogos/editar-lista/editar-lista.component';
+import { EliminarListaComponent } from './dialogos/eliminar-lista/eliminar-lista.component';
+import { EditarProductoComponent } from './dialogos/editar-producto/editar-producto.component';
+import { EliminarProductoComponent } from './dialogos/eliminar-producto/eliminar-producto.component';
 
 
 @NgModule({
@@ -38,6 +41,9 @@ import { EditarListaComponent } from './dialogos/editar-lista/editar-lista.compo
     NuevaListaComponent,
     NuevoProductoComponent,
     EditarListaComponent,
+    EliminarListaComponent,
+    EditarProductoComponent,
+    EliminarProductoComponent,
   ],
   imports: [
     BrowserModule,

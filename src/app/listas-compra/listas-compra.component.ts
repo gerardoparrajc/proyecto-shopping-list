@@ -19,6 +19,9 @@ export class ListasCompraComponent {
     return id === this.seleccionada;
   }
 
-
+  eliminarListaCompra(idLista: number) {
+    const indiceLista = this.listas.findIndex((item: any) => item.id === idLista);
+    this.listas.splice(indiceLista, 1);
+  }
 
 }

@@ -1,5 +1,7 @@
 .nombre {
   margin-right: 16px;
+  display: inline-block;
+  vertical-align: super;
 }
 
 .unidades {
@@ -13,4 +15,5 @@
   font-size: 14px;
   font-weight: 600;
   display: inline-block;
+  vertical-align: super;
 }
