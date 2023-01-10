@@ -101,9 +101,7 @@ export class AppComponent implements OnInit {
     this.listasCompraService.createProducto(nombreProducto, unidades, this.listaActiva).subscribe({
       next: (response: any) => {
         if (response && response.success) {
-
-          this.obtenerListasCompra();
-
+          this.listasCompraService.forzarActualizacionProductos(this.listaActiva);
         }
       },
       error: (err) => console.log(err)

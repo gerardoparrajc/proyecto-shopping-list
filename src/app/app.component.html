@@ -34,8 +34,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-productos *ngIf="listaActiva !== -1" [listaProductos]="getProductos(listaActiva)"></app-productos>
-    <h3 *ngIf="listaActiva === -1">Bienvenido a Shopping List.</h3>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

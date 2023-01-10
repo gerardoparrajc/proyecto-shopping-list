@@ -27,6 +27,7 @@ import { EditarListaComponent } from './dialogos/editar-lista/editar-lista.compo
 import { EliminarListaComponent } from './dialogos/eliminar-lista/eliminar-lista.component';
 import { EditarProductoComponent } from './dialogos/editar-producto/editar-producto.component';
 import { EliminarProductoComponent } from './dialogos/eliminar-producto/eliminar-producto.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -61,7 +62,9 @@ import { EliminarProductoComponent } from './dialogos/eliminar-producto/eliminar
     MatFormFieldModule,
     MatInputModule,
 
-    HttpClientModule
+    HttpClientModule,
+
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

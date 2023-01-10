@@ -1,6 +1,6 @@
-<p class="total">Productos restantes: {{cuentaProductos}}</p>
+<p *ngIf="cuentaProductos > 0" class="total">Productos restantes: {{cuentaProductos}}</p>
 
-<mat-selection-list cdkDropList (cdkDropListDropped)="drop($event)">
+<mat-selection-list *ngIf="cuentaProductos > 0" cdkDropList (cdkDropListDropped)="drop($event)">
   <app-item-producto
     *ngFor="let producto of listaProductos"
     cdkDrag
@@ -9,3 +9,7 @@
     (datosActualizados)="actualizarCuenta()">
   </app-item-producto>
 </mat-selection-list>
+
+<h2 *ngIf="cuentaProductos == 0">
+  Actualmente, no tienes productos en tu lista. Pulsa el botón + para añadir productos.
+</h2>

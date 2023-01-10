@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class ListasCompraService {
 
   urlServer = 'http://localhost:3000/api';
+  forzadorActualizacion = new BehaviorSubject<number>(0);
 
   constructor(private http: HttpClient) { }
 
@@ -34,6 +36,10 @@ export class ListasCompraService {
     return this.http.delete(`${this.urlServer}/listas-compra/${idLista}`);
   }
 
+  getProductos(idLista: number) {
+    return this.http.get(`${this.urlServer}/listas-compra/${idLista}/productos`);
+  }
+
   createProducto(nombreProducto: string, unidadesProducto: number, idLista: number) {
     return this.http.post(`${this.urlServer}/listas-compra/${idLista}/productos`, {
       nombre: nombreProducto,
@@ -51,4 +57,9 @@ export class ListasCompraService {
   removeProducto(idProducto: number) {
     return this.http.delete(`${this.urlServer}/productos/${idProducto}`);
   }
+
+  forzarActualizacionProductos(idLista: number) {
+    this.forzadorActualizacion.next(idLista);
+  }
+
 }

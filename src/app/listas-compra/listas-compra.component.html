@@ -4,6 +4,7 @@
     [datosLista]="lista"
     (listaActualizada)="eliminarListaCompra($event)"
     (click)="seleccionarLista(lista.id)"
-    [ngClass]="estaSeleccionada(lista.id) ? 'active' : ''"
+    routerLink="/lista-compra/{{ lista.id }}"
+    routerLinkActive="active"
   ></app-item-lista-compra>
 </mat-selection-list>
