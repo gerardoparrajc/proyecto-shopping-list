@@ -30,6 +30,10 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.obtenerListasCompra();
+  }
+
+  private obtenerListasCompra() {
     this.listasCompraService.getListasCompra().subscribe({
       next: (response: any) => {
         console.log(response);
@@ -75,7 +79,7 @@ export class AppComponent implements OnInit {
       next: (result) => {
         console.log(result);
         if (result) {
-          this.addProductoToLista(result.nombreProducto, result.unidades);
+          this.addProductoToLista(result.nombre, result.unidades);
         }
       },
       error: (err) => console.log(err)
@@ -94,6 +98,15 @@ export class AppComponent implements OnInit {
   }
 
   addProductoToLista(nombreProducto: string, unidades: number) {
+    this.listasCompraService.createProducto(nombreProducto, unidades, this.listaActiva).subscribe({
+      next: (response: any) => {
+        if (response && response.success) {
 
+          this.obtenerListasCompra();
+
+        }
+      },
+      error: (err) => console.log(err)
+    });
   }
 }

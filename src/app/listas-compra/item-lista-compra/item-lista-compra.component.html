@@ -1,4 +1,24 @@
 <mat-list-option>
-  <span matListItemTitle>{{ datosLista.nombre }}</span>
-  <span matListItemLine>Número de productos: {{ datosLista.Productos.length }}</span>
+  <div class="row">
+    <div class="column">
+      <span matListItemTitle>{{ datosLista.nombre }}</span>
+      <span matListItemLine>{{ datosLista.Productos.length }} productos</span>
+    </div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" (click)="onClick($event)" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="abrirEditarLista(datosLista.id)">
+        <mat-icon>edit</mat-icon>
+        <span>Editar lista</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Eliminar lista</span>
+      </button>
+    </mat-menu>
+  </div>
+
+
 </mat-list-option>

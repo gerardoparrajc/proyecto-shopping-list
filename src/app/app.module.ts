@@ -23,6 +23,7 @@ import { ItemProductoComponent } from './productos/item-producto/item-producto.c
 import { ProductosComponent } from './productos/productos.component';
 import { NuevaListaComponent } from './dialogos/nueva-lista/nueva-lista.component';
 import { NuevoProductoComponent } from './dialogos/nuevo-producto/nuevo-producto.component';
+import { EditarListaComponent } from './dialogos/editar-lista/editar-lista.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { NuevoProductoComponent } from './dialogos/nuevo-producto/nuevo-producto
     ItemProductoComponent,
     NuevaListaComponent,
     NuevoProductoComponent,
+    EditarListaComponent,
   ],
   imports: [
     BrowserModule,
