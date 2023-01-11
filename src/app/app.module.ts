@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { ItemListaCompraComponent } from './listas-compra/item-lista-compra/item-lista-compra.component';
@@ -66,6 +67,7 @@ import { RegistroComponent } from './registro/registro.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
 
     HttpClientModule,
 

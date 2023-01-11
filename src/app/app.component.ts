@@ -46,6 +46,12 @@ export class AppComponent implements OnInit {
           this.mostrarFormularios = true;
         } else {
           this.mostrarFormularios = false;
+
+          if (sessionStorage.getItem('shopping-list-token') === null) {
+            this.router.navigate(['/login']);
+            return;
+          }
+
           this.obtenerListasCompra();
         }
       }
@@ -125,5 +131,10 @@ export class AppComponent implements OnInit {
       },
       error: (err) => console.log(err)
     });
+  }
+
+  doLogout() {
+    sessionStorage.removeItem('shopping-list-token');
+    this.router.navigate(['/login']);
   }
 }
