@@ -31,6 +31,7 @@ export class LoginComponent {
       next: (response: any) => {
         if (response && response.success) {
           sessionStorage.setItem('shopping-list-token', response.data);
+          this.autenticacionService.isAuthenticated = true;
           this.router.navigate(['/lista-compra']);
         } else {
           this.snackBar.open(response.error, 'Ok');

@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductosComponent } from './productos/productos.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 const routes: Routes = [
-  { path: '', component: ProductosComponent },
+  { path: '', component: ProductosComponent, canActivate: [AuthGuardGuard] },
   { path: 'lista-compra', redirectTo: '/', pathMatch: 'full' },
-  { path: 'lista-compra/:id', component: ProductosComponent },
+  { path: 'lista-compra/:id', component: ProductosComponent, canActivate: [AuthGuardGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent }
 ]

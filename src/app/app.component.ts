@@ -47,11 +47,6 @@ export class AppComponent implements OnInit {
         } else {
           this.mostrarFormularios = false;
 
-          if (sessionStorage.getItem('shopping-list-token') === null) {
-            this.router.navigate(['/login']);
-            return;
-          }
-
           this.obtenerListasCompra();
         }
       }
