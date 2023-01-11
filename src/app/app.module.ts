@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,6 +28,8 @@ import { EliminarListaComponent } from './dialogos/eliminar-lista/eliminar-lista
 import { EditarProductoComponent } from './dialogos/editar-producto/editar-producto.component';
 import { EliminarProductoComponent } from './dialogos/eliminar-producto/eliminar-producto.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 @NgModule({
@@ -45,10 +47,13 @@ import { AppRoutingModule } from './app-routing.module';
     EliminarListaComponent,
     EditarProductoComponent,
     EliminarProductoComponent,
+    LoginComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,

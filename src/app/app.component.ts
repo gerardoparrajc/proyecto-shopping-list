@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { map, Observable, shareReplay } from 'rxjs';
 import { NuevaListaComponent } from './dialogos/nueva-lista/nueva-lista.component';
 import { NuevoProductoComponent } from './dialogos/nuevo-producto/nuevo-producto.component';
@@ -15,7 +16,8 @@ import { ListasCompraService } from './services/listas-compra.service';
 })
 export class AppComponent implements OnInit {
   public datos = [];
-  public listaActiva:number = -1;
+  public listaActiva: number = -1;
+  public mostrarFormularios: boolean = true;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -26,11 +28,28 @@ export class AppComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private listasCompraService: ListasCompraService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.obtenerListasCompra();
+    // this.obtenerListasCompra();
+
+    this.router.events.forEach(e => {
+      if (e instanceof NavigationEnd) {
+        console.log(this.route.root.firstChild?.snapshot.routeConfig?.path);
+        if (
+          this.route.root.firstChild?.snapshot.routeConfig?.path === 'login' ||
+          this.route.root.firstChild?.snapshot.routeConfig?.path === 'registro'
+        ) {
+          this.mostrarFormularios = true;
+        } else {
+          this.mostrarFormularios = false;
+          this.obtenerListasCompra();
+        }
+      }
+    });
   }
 
   private obtenerListasCompra() {

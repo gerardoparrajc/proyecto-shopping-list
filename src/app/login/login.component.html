@@ -1,0 +1,24 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (submit)="doLogin()">
+      <img src="/assets/imgs/groceries.png" class="logo" alt="Shopping list">
+      <h1>Shopping list - Login</h1>
+      <mat-form-field appearance="fill">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="usuario">
+          <mat-error *ngIf="loginForm.get('usuario')?.invalid">Escribe tu nombre de usuario</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">Escribe tu contraseña</mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">Mínimo, 5 caracteres</mat-error>
+        </mat-form-field>
+        <div class="buttons">
+          <button type="button" [routerLink]="['/registro']" mat-button color="accent">Regístrate</button>
+          <button type="submit" [disabled]="loginForm.invalid" mat-raised-button color="primary">Login</button>
+        </div>
+  </form>
+</div>

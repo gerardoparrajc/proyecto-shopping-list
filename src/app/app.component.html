@@ -1,41 +1,46 @@
-<mat-toolbar color="primary">
-  <button
-    type="button"
-    aria-label="Toggle sidenav"
-    mat-icon-button
-    (click)="drawer.toggle()"
-    *ngIf="isHandset$ | async">
-    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-  </button>
-  <span>Shoppint list</span>
-  <span class="spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu opciones">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="abrirDialogoNuevaLista()">
-      <mat-icon>checklist</mat-icon>
-      <span>Añadir lista</span>
+<div *ngIf="!mostrarFormularios">
+  <mat-toolbar color="primary">
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-    <button mat-menu-item [disabled]="listaActiva===-1" (click)="abrirDialogoNuevoProducto()">
-      <mat-icon>inventory_2</mat-icon>
-      <span>Añadir producto</span>
+    <span>Shoppint list</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu opciones">
+      <mat-icon>more_vert</mat-icon>
     </button>
-  </mat-menu>
-</mat-toolbar>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="abrirDialogoNuevaLista()">
+        <mat-icon>checklist</mat-icon>
+        <span>Añadir lista</span>
+      </button>
+      <button mat-menu-item [disabled]="listaActiva===-1" (click)="abrirDialogoNuevoProducto()">
+        <mat-icon>inventory_2</mat-icon>
+        <span>Añadir producto</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-nav-list>
-      <app-listas-compra [listas]="datos" [seleccionada]="listaActiva" (listaSeleccionada)="seleccionarLista($event)"></app-listas-compra>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-nav-list>
+        <app-listas-compra [listas]="datos" [seleccionada]="listaActiva" (listaSeleccionada)="seleccionarLista($event)"></app-listas-compra>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
 
+<div *ngIf="mostrarFormularios">
+  <router-outlet></router-outlet>
+</div>
 
